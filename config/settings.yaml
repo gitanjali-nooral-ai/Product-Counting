@@ -1,0 +1,41 @@
+camera:
+
+  default_source: 0
+
+  width: 1280
+
+  height: 720
+
+
+
+model:
+
+  path: data/models/yolov8n.pt
+
+  confidence: 0.6
+
+  image_size: 416
+
+
+
+matching:
+
+  threshold: 0.80
+
+
+
+counting:
+
+  line_position: 400
+
+
+
+storage:
+
+  snapshot_path: data/snapshots
+
+
+
+database:
+
+  path: data/database/production.db
