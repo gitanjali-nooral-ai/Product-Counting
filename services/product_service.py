@@ -1,11 +1,3 @@
-import os
-import shutil
-import uuid
-
-from config.settings import settings
-
-
-
 class ProductService:
 
 
@@ -21,92 +13,18 @@ class ProductService:
         image_path
     ):
 
-
-        product_folder = os.path.join(
-
-            settings.storage["products"],
-
-            name.replace(
-                " ",
-                "_"
-            )
-
-        )
-
-
-        os.makedirs(
-
-            product_folder,
-
-            exist_ok=True
-
-        )
-
-
-
-        extension = os.path.splitext(
-            image_path
-        )[1].lower()
-
-
-
-        filename = (
-
-            str(uuid.uuid4())
-
-            +
-
-            extension
-
-        )
-
-
-
-        saved_image = os.path.join(
-
-            product_folder,
-
-            filename
-
-        )
-
-
-
-        shutil.copy(
-
-            image_path,
-
-            saved_image
-
-        )
-
-
-
         product_id = self.database.add_product(
-
             name,
-
-            saved_image
-
+            image_path
         )
-
 
 
         return {
 
+            "id": product_id,
 
-            "id":
+            "name": name,
 
-                product_id,
-
-
-            "name":
-
-                name,
-
-
-            "image":
-
-                saved_image
+            "image": image_path
 
         }

@@ -1,14 +1,11 @@
 from fastapi import APIRouter, UploadFile, File, Form, HTTPException
-
 import os
 import shutil
 import uuid
 
-
 from src.database.database import Database
 from config.settings import settings
 from services.product_service import ProductService
-
 
 
 router = APIRouter(
@@ -17,17 +14,13 @@ router = APIRouter(
 )
 
 
-
 database = Database(
     settings.database["path"]
 )
 
-
-
 service = ProductService(
     database
 )
-
 
 
 ALLOWED_EXTENSIONS = [
@@ -37,7 +30,7 @@ ALLOWED_EXTENSIONS = [
 ]
 
 
-UPLOAD_FOLDER = "uploads/products"
+UPLOAD_FOLDER = "data/products"
 
 
 os.makedirs(
@@ -47,19 +40,17 @@ os.makedirs(
 
 
 
-
-# -----------------------------------
-# Upload Product
-# -----------------------------------
-
 @router.post("/upload")
 async def upload_product(
-
     name: str = Form(...),
-
     image: UploadFile = File(...)
-
 ):
+
+    if not name.strip():
+        raise HTTPException(
+            status_code=400,
+            detail="Product name required"
+        )
 
 
     extension = os.path.splitext(
@@ -67,17 +58,12 @@ async def upload_product(
     )[1].lower()
 
 
-
     if extension not in ALLOWED_EXTENSIONS:
 
         raise HTTPException(
-
             status_code=400,
-
-            detail="Only jpg, jpeg, png images allowed"
-
+            detail="Only jpg, jpeg and png images allowed"
         )
-
 
 
     filename = (
@@ -87,112 +73,57 @@ async def upload_product(
     )
 
 
-
     file_path = os.path.join(
-
         UPLOAD_FOLDER,
-
         filename
-
     )
 
 
+    try:
 
-    with open(
-        file_path,
-        "wb"
-    ) as buffer:
+        with open(
+            file_path,
+            "wb"
+        ) as buffer:
 
-        shutil.copyfileobj(
+            shutil.copyfileobj(
+                image.file,
+                buffer
+            )
 
-            image.file,
 
-            buffer
+        product = service.register_product(
+            name,
+            file_path
+        )
 
+
+        return {
+
+            "message": "Product registered successfully",
+
+            "product": product
+
+        }
+
+
+    except Exception as error:
+
+        if os.path.exists(file_path):
+            os.remove(file_path)
+
+        raise HTTPException(
+            status_code=500,
+            detail=str(error)
         )
 
 
 
-    product = service.register_product(
-
-        name,
-
-        file_path
-
-    )
-
-
-
-    return {
-
-        "message":
-            "Product registered successfully",
-
-        "product":
-            product
-
-    }
-
-
-
-
-
-# -----------------------------------
-# Get Products
-# -----------------------------------
 
 @router.get("/")
 def get_products():
 
-
-    cursor = database.conn.cursor()
-
-
-
-    rows = cursor.execute(
-
-        """
-
-        SELECT
-
-            id,
-
-            name,
-
-            image,
-
-            created
-
-
-        FROM products
-
-
-        ORDER BY id DESC
-
-        """
-
-    ).fetchall()
-
-
-
-    products = []
-
-
-
-    for row in rows:
-
-        products.append({
-
-            "id": row[0],
-
-            "name": row[1],
-
-            "image": row[2],
-
-            "created": row[3]
-
-        })
-
+    products = database.get_products()
 
 
     return {
