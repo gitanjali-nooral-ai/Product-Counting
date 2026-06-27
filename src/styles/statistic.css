@@ -1,0 +1,178 @@
+.statistics-page {
+
+    padding: 30px;
+
+    background: #F8FAFC;
+
+    min-height: 100vh;
+
+}
+
+
+/* Page Title */
+
+.page-title {
+
+    font-size: 34px !important;
+
+    font-weight: 700 !important;
+
+    color: #0F172A;
+
+}
+
+
+/* Page Subtitle */
+
+.page-subtitle {
+
+    color: #64748B;
+
+    margin-bottom: 25px !important;
+
+}
+
+
+/* Summary Cards */
+
+.summary-card {
+
+    padding: 25px;
+
+    border-radius: 18px !important;
+
+    text-align: center;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    box-shadow:
+
+        0 8px 25px rgba(15,23,42,0.06);
+
+}
+
+
+/* Summary Number */
+
+.summary-value {
+
+    font-size: 48px !important;
+
+    font-weight: 700 !important;
+
+    color: #2563EB;
+
+    margin-top: 15px !important;
+
+}
+
+
+/* Chart Card */
+
+.chart-card {
+
+    padding: 20px;
+
+    border-radius: 18px !important;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    box-shadow:
+
+        0 8px 25px rgba(15,23,42,0.06);
+
+}
+
+
+/* Analytics Card */
+
+.analytics-card {
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    box-shadow:
+
+        0 8px 25px rgba(15,23,42,0.06);
+
+}
+
+
+.analytics-card h6 {
+
+    color: #64748B;
+
+}
+
+
+.analytics-card h1,
+.analytics-card h3 {
+
+    margin-top: 15px;
+
+    font-weight: 800;
+
+    color: #0F172A;
+
+}
+
+
+/* Chart Box */
+
+.chart-box {
+
+    background: #FFFFFF;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    border: 1px solid #E2E8F0;
+
+}
+
+
+/* Chart Row */
+
+.chart-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+}
+
+
+/* Chart Bar */
+
+.bar {
+
+    height: 18px;
+
+    background: #2563EB;
+
+    border-radius: 20px;
+
+    transition: .3s ease;
+
+}
+
+
+.bar:hover {
+
+    background: #1D4ED8;
+
+}

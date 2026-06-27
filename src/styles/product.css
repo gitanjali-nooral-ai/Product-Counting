@@ -1,0 +1,231 @@
+.products-page {
+
+    padding: 30px;
+
+    background: #F8FAFC;
+
+    min-height: 100vh;
+
+}
+
+
+/* Page Title */
+
+.page-title {
+
+    font-size: 34px !important;
+
+    font-weight: 700 !important;
+
+    color: #0F172A;
+
+}
+
+
+.page-subtitle {
+
+    color: #64748B;
+
+    margin-bottom: 25px !important;
+
+}
+
+
+/* Upload Card */
+
+.upload-card {
+
+    padding: 25px;
+
+    border-radius: 18px !important;
+
+    height: 100%;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    box-shadow:
+
+        0 8px 25px rgba(15,23,42,0.06);
+
+}
+
+
+/* Image Preview */
+
+.preview {
+
+    width: 100%;
+
+    height: 250px;
+
+    margin-top: 20px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    border: 2px dashed #CBD5E1;
+
+}
+
+
+/* Product List Card */
+
+.list-card {
+
+    padding: 25px;
+
+    border-radius: 18px !important;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    box-shadow:
+
+        0 8px 25px rgba(15,23,42,0.06);
+
+}
+
+
+/* Product Grid */
+
+.product-grid {
+
+    display: grid;
+
+    grid-template-columns:
+
+    repeat(auto-fill,minmax(260px,1fr));
+
+    gap: 25px;
+
+}
+
+
+/* Product Card */
+
+.product-card {
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+}
+
+
+.product-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+
+        0 20px 40px rgba(15,23,42,0.12);
+
+}
+
+
+/* Product Image */
+
+.product-image {
+
+    height: 220px;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #EFF6FF,
+
+            #F8FAFC
+
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 70px;
+
+    color: #2563EB;
+
+}
+
+
+.product-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+/* Product Information */
+
+.product-info {
+
+    padding: 22px;
+
+}
+
+
+.product-info h5 {
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #0F172A;
+
+    margin-bottom: 8px;
+
+}
+
+
+.product-info p {
+
+    color: #64748B;
+
+    font-size: 14px;
+
+}
+
+
+/* Active Badge */
+
+.badge-active {
+
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 6px 15px;
+
+    border-radius: 20px;
+
+    background: #DCFCE7;
+
+    color: #15803D;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}

@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:root {
+
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #FFFFFF;
+  --bg-card: #FFFFFF;
+
+  --border-color: #E2E8F0;
+
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+
+  --accent: #2563EB;
+  --accent-hover: #1D4ED8;
+
+  --scrollbar: #CBD5E1;
+
+}
+
+
+body {
+
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  line-height: 1.6;
+
+}
+
+
+#root {
+
+  min-height: 100vh;
+
+}
+
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+
+  width: 8px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+  background: #F1F5F9;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+  background: var(--scrollbar);
+
+  border-radius: 10px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+  background: #94A3B8;
+
+}
+
+
+/* Cards */
+
+.card-dark {
+
+  background: var(--bg-card);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 4px 15px rgba(15, 23, 42, 0.06);
+
+}
+
+
+/* Text */
+
+.text-muted {
+
+  color: var(--text-muted)!important;
+
+}
+
+
+/* Optional buttons */
+
+.btn-primary {
+
+  background: var(--accent);
+
+  color: #FFFFFF;
+
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 10px 18px;
+
+  transition: 0.2s ease;
+
+}
+
+
+.btn-primary:hover {
+
+  background: var(--accent-hover);
+
+}

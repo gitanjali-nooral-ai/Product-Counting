@@ -1,0 +1,142 @@
+.events-page {
+
+  padding: 30px;
+
+}
+
+
+/* Page Title */
+
+.page-title {
+
+  font-size: 34px !important;
+
+  font-weight: 700 !important;
+
+  color: #0F172A;
+
+}
+
+
+/* Subtitle */
+
+.page-subtitle {
+
+  margin-bottom: 25px !important;
+
+  color: #64748B;
+
+}
+
+
+/* Table Card */
+
+.table-card {
+
+  padding: 20px;
+
+  border-radius: 18px !important;
+
+  background: #FFFFFF;
+
+  border: 1px solid #E2E8F0;
+
+  box-shadow:
+
+    0 8px 25px rgba(15,23,42,0.06);
+
+}
+
+
+/* Event Box */
+
+.event-box {
+
+  background: #FFFFFF;
+
+  border-radius: 20px;
+
+  padding: 25px;
+
+  border: 1px solid #E2E8F0;
+
+  box-shadow:
+
+    0 6px 20px rgba(15,23,42,0.05);
+
+}
+
+
+/* Table */
+
+.table {
+
+  margin-top: 20px;
+
+}
+
+
+.table td,
+.table th {
+
+  border-color: #E2E8F0;
+
+  color: #334155;
+
+}
+
+
+.table th {
+
+  color: #0F172A;
+
+  font-weight: 600;
+
+}
+
+
+/* Timeline */
+
+.timeline {
+
+  border-left: 2px solid #2563EB;
+
+  padding-left: 30px;
+
+}
+
+
+/* Timeline Item */
+
+.timeline-item {
+
+  position: relative;
+
+  margin-bottom: 25px;
+
+}
+
+
+/* Timeline Dot */
+
+.dot {
+
+  position: absolute;
+
+  left: -42px;
+
+  top: 10px;
+
+  width: 14px;
+
+  height: 14px;
+
+  background: #22C55E;
+
+  border-radius: 50%;
+
+  box-shadow:
+
+    0 0 10px rgba(34,197,94,0.4);
+
+}

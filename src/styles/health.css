@@ -1,0 +1,104 @@
+.health-page {
+
+  padding: 30px;
+
+  background: #F8FAFC;
+
+  min-height: 100vh;
+
+}
+
+
+/* Page Title */
+
+.page-title {
+
+  font-size: 34px !important;
+
+  font-weight: 700 !important;
+
+  color: #0F172A;
+
+}
+
+
+/* Page Subtitle */
+
+.page-subtitle {
+
+  margin-bottom: 25px !important;
+
+  color: #64748B;
+
+}
+
+
+/* Health Card */
+
+.health-card {
+
+  padding: 25px;
+
+  border-radius: 18px !important;
+
+  text-align: center;
+
+  background: #FFFFFF;
+
+  border: 1px solid #E2E8F0;
+
+  box-shadow:
+
+    0 8px 25px rgba(15,23,42,0.06);
+
+}
+
+
+/* System Card */
+
+.system-card {
+
+  padding: 30px;
+
+  margin-top: 20px;
+
+  border-radius: 18px !important;
+
+  background: #FFFFFF;
+
+  border: 1px solid #E2E8F0;
+
+  box-shadow:
+
+    0 8px 25px rgba(15,23,42,0.06);
+
+}
+
+
+/* Optional Health Status */
+
+.health-status {
+
+  color: #16A34A;
+
+  font-weight: 600;
+
+}
+
+
+.health-warning {
+
+  color: #D97706;
+
+  font-weight: 600;
+
+}
+
+
+.health-error {
+
+  color: #DC2626;
+
+  font-weight: 600;
+
+}

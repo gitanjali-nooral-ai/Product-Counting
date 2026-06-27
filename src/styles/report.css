@@ -1,0 +1,126 @@
+.reports-page {
+
+    padding: 30px;
+
+    background: #F8FAFC;
+
+    min-height: 100vh;
+
+}
+
+
+/* Page Title */
+
+.page-title {
+
+    font-size: 34px !important;
+
+    font-weight: 700 !important;
+
+    color: #0F172A;
+
+}
+
+
+.page-subtitle {
+
+    color: #64748B;
+
+    margin-bottom: 25px !important;
+
+}
+
+
+/* Toolbar */
+
+.toolbar {
+
+    padding: 20px;
+
+    border-radius: 18px !important;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    box-shadow:
+
+        0 8px 25px rgba(15,23,42,0.06);
+
+}
+
+
+/* Table Card */
+
+.table-card {
+
+    padding: 20px;
+
+    border-radius: 18px !important;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    box-shadow:
+
+        0 8px 25px rgba(15,23,42,0.06);
+
+}
+
+
+/* Material UI Data Grid */
+
+.MuiDataGrid-root {
+
+    border: none !important;
+
+    color: #334155;
+
+}
+
+
+.MuiDataGrid-columnHeaders {
+
+    background: #F1F5F9;
+
+    font-weight: 700;
+
+    color: #0F172A;
+
+    border-bottom: 1px solid #E2E8F0;
+
+}
+
+
+.MuiDataGrid-row {
+
+    transition: .2s ease;
+
+}
+
+
+.MuiDataGrid-row:hover {
+
+    background: #F8FAFC !important;
+
+}
+
+
+/* Report Box */
+
+.report-box {
+
+    background: #FFFFFF;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    border: 1px solid #E2E8F0;
+
+    box-shadow:
+
+        0 8px 25px rgba(15,23,42,0.06);
+
+}
