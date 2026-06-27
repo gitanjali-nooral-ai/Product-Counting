@@ -1,128 +1,133 @@
 import {
-useEffect,
-useState
-}
-from "react";
-
+  useEffect,
+  useState
+} from "react";
 
 import api from "../api/api";
-
 
 import "../styles/event.css";
 
 
+export default function Events() {
 
-export default function Events(){
+  const [events, setEvents] = useState([]);
 
 
-const [events,setEvents]=useState([]);
+  useEffect(() => {
 
+    loadEvents();
 
+  }, []);
 
-useEffect(()=>{
 
 
-api.get("/events/?limit=100")
+  async function loadEvents() {
 
-.then(res=>{
+    try {
 
-setEvents(res.data.events);
+      const res = await api.get(
+        "/events/?limit=100"
+      );
 
-});
 
+      setEvents(
+        res.data.events
+      );
 
-},[]);
 
+    } catch(error) {
 
+      console.log(error);
 
+    }
 
-return (
+  }
 
-<div>
 
 
-<div className="page-title">
+  return (
 
+    <div>
 
-<h2>
 
-Detection Events
+      <div className="page-title">
 
-</h2>
+        <h2>
+          Detection Events
+        </h2>
 
+        <p>
+          Object tracking history
+        </p>
 
-<p>
+      </div>
 
-Object tracking history
 
-</p>
 
+      <div className="timeline">
 
-</div>
 
+        {
+          events.length === 0 ? (
 
+            <p>
+              No detection events found.
+            </p>
 
+          ) : (
 
-<div className="timeline">
 
+            events.map(event => (
 
-{
 
-events.map(event=>(
+              <div
+                className="timeline-item"
+                key={event.event_id}
+              >
 
 
-<div className="timeline-item"
+                <div className="dot"></div>
 
-key={event.event_id}>
 
 
-<div className="dot"></div>
+                <div className="event-info">
 
 
-<div>
+                  <h5>
+                    {event.product_name}
+                  </h5>
 
 
-<h5>
 
-{event.product_name}
+                  <p>
+                    Product ID : {event.product_id}
+                  </p>
 
-</h5>
 
 
-<p>
+                  <span>
+                    {event.counted_at}
+                  </span>
 
-Track ID :
 
-{event.track_id}
+                </div>
 
-</p>
 
+              </div>
 
-<span>
 
-{event.counted_at}
+            ))
 
-</span>
 
+          )
+        }
 
-</div>
 
+      </div>
 
-</div>
 
+    </div>
 
-))
-
-
-}
-
-
-</div>
-
-
-</div>
-
-
-)
+  );
 
 }
