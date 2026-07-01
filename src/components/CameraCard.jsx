@@ -10,7 +10,11 @@ return (
 <div className="camera-card">
 
 
-<div className="camera-header">
+
+<div className="camera-card-header">
+
+
+<div>
 
 
 <h5>
@@ -20,58 +24,201 @@ return (
 </h5>
 
 
-<span className="online-dot">
+<p>
 
-● Online
+{camera.type?.toUpperCase()}
 
-</span>
+</p>
 
 
 </div>
 
 
 
-<p>
 
-Source:
+<div
+
+className={
+
+camera.online
+
+?
+
+"status-online"
+
+:
+
+"status-offline"
+
+}
+
+>
+
+
+<span></span>
+
+
+{
+
+camera.online
+
+?
+
+"ONLINE"
+
+:
+
+"OFFLINE"
+
+}
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div className="camera-source">
+
+
+<label>
+
+Source
+
+</label>
+
+
+<p>
 
 {camera.source}
 
 </p>
 
 
+</div>
 
-<div className="camera-info">
 
 
-<div>
+
+
+
+
+
+<div className="camera-metrics">
+
+
+
+<div className="metric-box">
+
+
+<label>
 
 FPS
 
-<strong>
+</label>
 
-{camera.fps}
-
-</strong>
-
-</div>
-
-
-<div>
-
-Count
 
 <strong>
 
-{camera.count}
+{
+
+camera.fps || 0
+
+}
 
 </strong>
 
+
+</div>
+
+
+
+
+
+
+<div className="metric-box">
+
+
+<label>
+
+Objects
+
+</label>
+
+
+<strong>
+
+{
+
+camera.count || 0
+
+}
+
+</strong>
+
+
+</div>
+
+
+
+
+
+<div className="metric-box">
+
+
+<label>
+
+Resolution
+
+</label>
+
+
+<strong>
+
+{
+
+camera.width
+
+}
+
+x
+
+{
+
+camera.height
+
+}
+
+</strong>
+
+
 </div>
 
 
 
 </div>
+
+
+
+
+
+<button
+
+className="camera-select-btn"
+
+>
+
+
+Open Camera
+
+
+</button>
+
 
 
 

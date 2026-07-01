@@ -66,26 +66,6 @@ YOLO11n + ByteTrack Monitoring System
 <div className="nav-status">
 
 
-<span className="status online">
-
-<i className="bi bi-circle-fill"></i>
-
-Camera Online
-
-</span>
-
-
-
-<span className="status model">
-
-<i className="bi bi-cpu"></i>
-
-YOLO11n
-
-</span>
-
-
-
 <span className="time">
 
 <i className="bi bi-clock"></i>

@@ -1,40 +1,82 @@
 export default function LiveStream(){
 
+
 return (
 
 <div className="live-stream">
 
 
+
 <div className="stream-header">
 
-<h5>
 
-Live Camera Feed
-
-</h5>
+<div>
 
 
-<span>
+<h4>
 
-● LIVE
+Live Detection Feed
 
-</span>
+</h4>
+
+
+<p>
+
+AI product detection stream
+
+</p>
 
 
 </div>
 
 
 
-<div className="video-box">
+<div className="stream-status">
+
+
+<span className="pulse"></span>
+
+LIVE
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div className="video-container">
 
 
 <img
 
 src="http://localhost:8000/camera/stream"
 
-alt="camera stream"
+alt="Live camera stream"
 
 />
+
+
+
+<div className="video-overlay">
+
+
+<div className="recording">
+
+
+<span></span>
+
+Recording
+
+
+</div>
+
+
+</div>
+
 
 
 </div>
