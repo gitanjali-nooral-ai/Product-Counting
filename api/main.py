@@ -12,7 +12,7 @@ from api.routes import health
 from api.routes import stream
 from api.routes import snapshot
 from api.routes import events
-
+from fastapi.staticfiles import StaticFiles
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -69,3 +69,12 @@ def home():
         "status": "running",
         "version":"2.0.0"
     }
+
+
+
+
+app.mount(
+    "/data",
+    StaticFiles(directory="data"),
+    name="data"
+)
