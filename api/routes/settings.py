@@ -16,13 +16,12 @@ router = APIRouter(
 
 class SettingsUpdate(BaseModel):
 
-    camera_source: str | int | None = None
-
     confidence: float | None = Field(
         None,
         ge=0.1,
         le=1.0
     )
+
 
     image_size: int | None = Field(
         None,
@@ -30,12 +29,16 @@ class SettingsUpdate(BaseModel):
         le=1280
     )
 
+
     line_position: int | None = Field(
         None,
         ge=0
     )
 
+
     model_device: str | None = None
+
+
 
 
 
@@ -46,25 +49,51 @@ def get_settings():
 
         return {
 
-            "camera":
-                getattr(settings, "camera", {}),
 
             "model":
-                getattr(settings, "model", {}),
+
+                getattr(
+                    settings,
+                    "model",
+                    {}
+                ),
+
+
 
             "counting":
-                getattr(settings, "counting", {}),
+
+                getattr(
+                    settings,
+                    "counting",
+                    {}
+                ),
+
+
 
             "storage":
-                getattr(settings, "storage", {}),
+
+                getattr(
+                    settings,
+                    "storage",
+                    {}
+                ),
+
+
 
             "database":
-                getattr(settings, "database", {})
+
+                getattr(
+                    settings,
+                    "database",
+                    {}
+                )
+
 
         }
 
 
     except Exception as e:
+
 
         raise HTTPException(
 
@@ -78,12 +107,19 @@ def get_settings():
 
 
 
+
+
 @router.put("/")
 def update_settings(
     data: SettingsUpdate
 ):
 
-    if not hasattr(settings, "config"):
+
+    if not hasattr(
+        settings,
+        "config"
+    ):
+
 
         raise HTTPException(
 
@@ -94,83 +130,121 @@ def update_settings(
         )
 
 
+
     config = settings.config
 
 
-
-    if data.camera_source is not None:
-
-        config.setdefault(
-            "camera",
-            {}
-        )
-
-        config["camera"]["source"] = data.camera_source
 
 
 
     if data.confidence is not None:
 
+
         config.setdefault(
             "model",
             {}
         )
 
-        config["model"]["confidence"] = data.confidence
+
+        config["model"]["confidence"] = (
+
+            data.confidence
+
+        )
+
+
 
 
 
     if data.image_size is not None:
 
+
         config.setdefault(
             "model",
             {}
         )
 
-        config["model"]["image_size"] = data.image_size
+
+        config["model"]["image_size"] = (
+
+            data.image_size
+
+        )
+
+
 
 
 
     if data.model_device is not None:
 
+
         config.setdefault(
             "model",
             {}
         )
 
-        config["model"]["device"] = data.model_device
+
+        config["model"]["device"] = (
+
+            data.model_device
+
+        )
+
+
 
 
 
     if data.line_position is not None:
+
 
         config.setdefault(
             "counting",
             {}
         )
 
-        config["counting"]["line_position"] = data.line_position
+
+        config["counting"]["line_position"] = (
+
+            data.line_position
+
+        )
+
+
 
 
 
     save_config(config)
 
 
-    if hasattr(settings, "reload"):
+
+    if hasattr(
+        settings,
+        "reload"
+    ):
+
 
         settings.reload()
 
 
 
+
+
     return {
 
+
         "message":
+
             "Settings updated successfully",
 
+
+
         "settings":
+
             config
 
     }
+
+
 
 
 
@@ -192,7 +266,9 @@ def save_config(config):
     )
 
 
+
     if not config_file.exists():
+
 
         raise HTTPException(
 
@@ -204,10 +280,13 @@ def save_config(config):
 
 
 
+
+
     with open(
         config_file,
         "w"
     ) as file:
+
 
         yaml.safe_dump(
 

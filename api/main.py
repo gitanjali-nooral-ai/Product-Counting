@@ -31,15 +31,10 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-
     title="Customer Product Detection API",
-
     version="2.0.0",
-
     description="YOLO11n based customer product counting system",
-
     lifespan=lifespan
-
 )
 
 
@@ -70,10 +65,7 @@ def home():
 
     return {
         "application":"Customer Product Detection System",
-
         "engine": "YOLO11n + ByteTrack",
-
         "status": "running",
-
         "version":"2.0.0"
     }

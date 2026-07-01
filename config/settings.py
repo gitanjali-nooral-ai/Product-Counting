@@ -13,15 +13,6 @@ class Settings:
 
             self.data=yaml.safe_load(f)
 
-
-
-    @property
-    def camera(self):
-
-        return self.data["camera"]
-
-
-
     @property
     def model(self):
 

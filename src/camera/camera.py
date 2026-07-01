@@ -1,12 +1,24 @@
 import cv2
 
 
+
 class Camera:
 
 
-    def __init__(self,source):
+    def __init__(self, source):
 
-        self.cap=cv2.VideoCapture(source)
+
+        if isinstance(source, str):
+
+            if source.isdigit():
+
+                source = int(source)
+
+
+
+        self.cap = cv2.VideoCapture(
+            source
+        )
 
 
 
@@ -18,4 +30,6 @@ class Camera:
 
     def release(self):
 
-        self.cap.release()
+        if self.cap:
+
+            self.cap.release()

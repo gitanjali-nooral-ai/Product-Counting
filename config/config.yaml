@@ -1,8 +1,3 @@
-camera:
-  source: 0
-  width: 640
-  height: 480
-
 model:
   path: data/models/yolo11n.pt
   confidence: 0.55

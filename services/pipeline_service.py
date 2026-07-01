@@ -12,16 +12,11 @@ class PipelineService:
     def __init__(self):
 
         self.worker = None
-
         self.thread = None
-
         self.error = None
 
 
 
-    # ---------------------------------
-    # Worker wrapper
-    # ---------------------------------
 
     def _run_worker(self):
 
@@ -45,13 +40,11 @@ class PipelineService:
 
 
 
-    # ---------------------------------
-    # Start pipeline
-    # ---------------------------------
-
     def start(
         self,
-        product_id=None
+        product_id=None,
+        camera_id=None,
+        camera_source=None
     ):
 
 
@@ -61,8 +54,6 @@ class PipelineService:
 
 
 
-        # Reset runtime state
-
         state.count = 0
 
         state.fps = 0
@@ -71,12 +62,11 @@ class PipelineService:
 
         state.product_id = product_id
 
+        state.camera_id = camera_id
 
 
-        # Reset error
 
         self.error = None
-
 
 
         state.running = True
@@ -88,7 +78,9 @@ class PipelineService:
 
             self.worker = CameraWorker(
 
-                product_id
+                product_id,
+
+                camera_source
 
             )
 
@@ -126,52 +118,21 @@ class PipelineService:
 
 
 
-    # ---------------------------------
-    # Stop pipeline
-    # ---------------------------------
-
     def stop(self):
-
 
         if not state.running:
 
             return False
 
 
-
         state.running = False
-
-
-
-        if self.worker:
-
-
-            # if worker supports stop
-
-            if hasattr(
-                self.worker,
-                "stop"
-            ):
-
-                try:
-
-                    self.worker.stop()
-
-                except Exception:
-
-                    traceback.print_exc()
-
 
 
         if self.thread:
 
-
             self.thread.join(
-
                 timeout=5
-
             )
-
 
 
         self.thread = None
@@ -179,11 +140,9 @@ class PipelineService:
         self.worker = None
 
 
-
         state.latest_frame = None
 
         state.fps = 0
-
 
 
         return True
@@ -192,27 +151,10 @@ class PipelineService:
 
 
 
-    # ---------------------------------
-    # Status
-    # ---------------------------------
-
     def status(self):
 
 
-        product_name = None
-
-
-        if hasattr(
-            state,
-            "product_name"
-        ):
-
-            product_name = state.product_name
-
-
-
         return {
-
 
             "running":
 
@@ -220,44 +162,41 @@ class PipelineService:
                     state.running
                 ),
 
-
-
             "count":
 
                 state.count,
 
 
-
             "fps":
 
                 round(
-
                     state.fps,
-
                     2
-
                 ),
-
 
 
             "product":
 
             {
 
+                "id":
+
+                    state.product_id
+
+            },
+
+
+            "camera":
+
+            {
 
                 "id":
 
                     getattr(
                         state,
-                        "product_id",
+                        "camera_id",
                         None
-                    ),
-
-
-
-                "name":
-
-                    product_name
+                    )
 
             },
 
